@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
 
 class BookList extends Component {
+    state = {
+        books : [
+            {id : 1, title : 'Eragon'},
+            {id : 2, title : 'Eldest'},
+            {id : 3, title : 'Brisingr'}
+        ]
+    }
     render() { 
-        return (  
+        return(
             <div className = 'book-list'>
                 <ul>
-                    <li>Eragon</li>
-                    <li>Eldest</li>
-                    <li>Brisingr</li>
-                    
+                    {this.state.books.map(book => (
+                        <li key = {book.id}>{book.title}</li>
+                    ))}
                 </ul>
             </div>
-        );
+        )
+        
+
     }
 }
  

@@ -11,3 +11,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App{
+  max-width: 500px;
+  margin: 0 auto;
+  padding : 15px;
+}
+
+h1{
+  text-align: center;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+nav li {
+  display: inline-block;
+  margin: 0 15px;
+}
+li{
+  list-style-type: none;
+}
+
+.book-list {
+  height : 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
