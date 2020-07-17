@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { ThemeContext } from '../contexts/ThemeContext';
 class BookList extends Component {
     state = {
         books : [
@@ -10,17 +10,25 @@ class BookList extends Component {
     }
     render() { 
         return(
-            <div className = 'book-list'>
-                <ul>
-                    {this.state.books.map(book => (
-                        <li key = {book.id}>{book.title}</li>
-                    ))}
-                </ul>
-            </div>
+            <ThemeContext.Consumer>{(context)=>{
+                const { isLightTheme, light, dark } = context;
+                const theme = isLightTheme ? light : dark;
+                return(
+                    <div className = 'book-list' style = {{background : theme.ui, color : theme.syntax}}>
+                        <ul>
+                            {this.state.books.map(book => (
+                                <li key = {book.id}>{book.title}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )
+            }}
+            </ThemeContext.Consumer>
+            
         )
+    }    
         
-
-    }
+    
 }
  
 export default BookList;
